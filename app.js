@@ -49,12 +49,7 @@ $(document).ready(function () {
   });
 
   var typed = new Typed(".typing-2", {
-    strings: [
-      "Mern Stack Developer",
-      "JavaScript Developer",
-      "React Developer",
-      "NodeJs Developer",
-    ],
+    strings: ["Passionate Developer from Bangladesh"],
     typeSpeed: 100,
     backSpeed: 60,
     loop: true,
