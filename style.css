@@ -351,9 +351,23 @@ section .title::after {
   color: blueviolet;
   background: none;
 }
-.skills .skills-content .right .bars {
-  margin-bottom: 15px;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  gap: 10px; /* Optional: spacing between items */
 }
+.grid-container img {
+  width: 80px;
+}
+
+.grid-item {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
 .skills .skills-content .right .info {
   display: flex;
   margin-bottom: 5px;
