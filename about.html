@@ -7,7 +7,29 @@
       body {
         font-family: "Arial", sans-serif;
       }
+
+      @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out;
+    }
+}
     </style>
+    
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -46,147 +68,187 @@
     <section
       class="max-w-6xl mx-auto   p-10 rounded-3xl  backdrop-blur-lg"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <img
-            src="https://i.postimg.cc/Wb1cpTNK/467180981-2093635794384138-1310051762767360599-n-removebg-preview.png"
-            alt="Team Image"
-            class="rounded-3xl shadow-lg"
-          />
+   <div id="about-section" class="opacity-0 translate-y-20 transition-all duration-1000 ease-out">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="relative">
+            <img
+                src="https://i.postimg.cc/Wb1cpTNK/467180981-2093635794384138-1310051762767360599-n-removebg-preview.png"
+                alt="Team Image"
+                class="rounded-3xl shadow-lg opacity-0 scale-75 rotate-6 transition-all duration-1000 ease-out delay-200"
+            />
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-blue-500 opacity-30 blur-xl -z-10"></div>
         </div>
 
-        <div>
-          <h2
-            class="text-4xl font-bold text-gradient  inline-block"
-          >
-            Know about our journey — Education & Experience
-          </h2>
-          <p class="mt-4 text-gray-300 leading-relaxed">
-            Self-motivated, creative, and ambitious software developer and
-            seeking a challenging career with a good organization that provides
-            the opportunity.
-          </p>
-          <p class="mt-4 text-gray-300 leading-relaxed">
-            A dedicated and hardworking individual with a Bachelor's degree in
-            Computer Science. Being well aware of the challenges and demands of
-            this ever-evolving sector, I am offering my efficient and diligent
-            services to fulfill the requirements of the IT industry. I aim at
-            keeping myself up-to-date with the on-going developments in this
-            field. Therefore, through my growing knowledge as well as sharp
-            focus, I intend to successfully achieve my career goals.
-          </p>
+        <div class="space-y-6">
+            <h2
+                class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text opacity-0 -translate-x-10 transition-all duration-1000 ease-out delay-300"
+            >
+                Know about our journey — Education & Experience
+            </h2>
+
+            <p class="text-gray-300 leading-relaxed opacity-0 translate-y-10 transition-all duration-1000 ease-out delay-500">
+                Self-motivated, creative, and ambitious software developer and
+                seeking a challenging career with a good organization that provides
+                the opportunity.
+            </p>
+            <p class="text-gray-300 leading-relaxed opacity-0 translate-y-10 transition-all duration-1000 ease-out delay-700">
+                A dedicated and hardworking individual with a Bachelor's degree in
+                Computer Science. Being well aware of the challenges and demands of
+                this ever-evolving sector, I am offering my efficient and diligent
+                services to fulfill the requirements of the IT industry. I aim at
+                keeping myself up-to-date with the on-going developments in this
+                field. Therefore, through my growing knowledge as well as sharp
+                focus, I intend to successfully achieve my career goals.
+            </p>
         </div>
-      </div>
+    </div>
+</div>
+
+<!-- Script to trigger animations on scroll -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("about-section");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                section.classList.add("opacity-100", "translate-y-0");
+
+                // Trigger inner animations
+                section.querySelectorAll("img").forEach(img => {
+                    img.classList.remove("opacity-0", "scale-75", "rotate-6");
+                    img.classList.add("opacity-100", "scale-100", "rotate-0");
+                });
+
+                section.querySelectorAll("h2").forEach(h2 => {
+                    h2.classList.remove("opacity-0", "-translate-x-10");
+                    h2.classList.add("opacity-100", "translate-x-0");
+                });
+
+                section.querySelectorAll("p").forEach(p => {
+                    p.classList.remove("opacity-0", "translate-y-10");
+                    p.classList.add("opacity-100", "translate-y-0");
+                });
+
+                observer.unobserve(section); // Remove if you want to trigger only once
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+});
+</script>
+
  <!-- Education & Experience Combined Column -->
   <h1 class="mt-20 mb-10 text-5xl text-center font-bold"> Education & Experience</h1>
-        <div class="space-y-10 grid grid-cols-2">
+    <div class="space-y-10 grid grid-cols-2">
 
-            <!-- Education Section -->
-            <div>
-                <h3 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-green-500 text-transparent bg-clip-text mt-10">📚 Education</h3>
-                <div class="mt-6 space-y-6 relative">
+    <!-- Education Section -->
+    <div class="group">
+        <h3 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-green-500 text-transparent bg-clip-text mt-10">📚 Education</h3>
+        <div class="mt-6 space-y-6">
 
-                    <div class="relative pl-8">
-                        <div class="absolute top-0 left-[-16px] w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">🎓</div>
-                        <h4 class="text-xl font-bold">Bachelor of Science in Computer Science</h4>
-                        <p class="text-gray-400">Daffodil International University (2017 - 2022)</p>
-                        <p class="text-sm text-gray-300 mt-1">Focused on software engineering, web technologies, and creative problem-solving.</p>
-                    </div>
-
-
-                      <div class="relative pl-8">
-                        <div class="absolute top-0 left-[-16px] w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">🎓</div>
-                        <h4 class="text-xl font-bold">Higher Secondary Certificate</h4>
-                        <p class="text-gray-400">University Laboratory Schoole & College (2014 - 2016)</p>
-                        <p class="text-sm text-gray-300 mt-1">Focused on software engineering, web technologies, and creative problem-solving.</p>
-                    </div>
-
-                  
-                      <div class="relative pl-8">
-                        <div class="absolute top-0 left-[-16px] w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">🎓</div>
-                        <h4 class="text-xl font-bold">Secondary Secondary Certificate</h4>
-                        <p class="text-gray-400">Armanitola Govt High School (2012 - 2014)</p>
-                        <p class="text-sm text-gray-300 mt-1">Focused on software engineering, web technologies, and creative problem-solving.</p>
-                    </div>
-
-                </div>
+            <div class="relative pl-8 motion-safe:animate-fadeInUp">
+                <div class="absolute top-0 left-[-16px] w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">🎓</div>
+                <h4 class="text-xl font-bold">Bachelor of Science in Computer Science</h4>
+                <p class="text-gray-400">Daffodil International University (2017 - 2022)</p>
+                <p class="text-sm text-gray-300 mt-1">Focused on software engineering, web technologies, and creative problem-solving.</p>
             </div>
 
-            <!-- Experience Section -->
-            <div>
-                <h3 class="text-3xl font-bold bg-gradient-to-r from-pink-400 to-purple-500 text-transparent bg-clip-text">💼 Experience</h3>
-                <div class="mt-6 space-y-6 relative">
+            <div class="relative pl-8 motion-safe:animate-fadeInUp delay-100">
+                <div class="absolute top-0 left-[-16px] w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">🎓</div>
+                <h4 class="text-xl font-bold">Higher Secondary Certificate</h4>
+                <p class="text-gray-400">University Laboratory School & College (2014 - 2016)</p>
+                <p class="text-sm text-gray-300 mt-1">Focused on software engineering, web technologies, and creative problem-solving.</p>
+            </div>
 
-                    <div class="relative pl-8 ">
-                        <div class="absolute top-0 left-[-16px] w-8 h-8 bg-purple-500 text-white flex items-center justify-center rounded-full">💻</div>
-                        <h4 class="text-xl font-bold">Full Stack Developer</h4>
-                        <p class="text-gray-400">Goinnovior Limited (2024 - Present)</p>
-                        <p class="text-sm text-gray-300 mt-1">Building modern, responsive web experiences using React.js, Tailwind CSS, and Next.js.</p>
-                    </div>
-
-                   <div class="relative pl-8 ">
-                        <div class="absolute top-0 left-[-16px] w-8 h-8 bg-purple-500 text-white flex items-center justify-center rounded-full">💻</div>
-                        <h4 class="text-xl font-bold">Full Stack Engineer</h4>
-                        <p class="text-gray-400">Mentormate, Sweden (Remote) (2023 - 2024)</p>
-                        <p class="text-sm text-gray-300 mt-1">Building modern, responsive web experiences using React.js, Tailwind CSS, and Next.js.</p>
-                    </div>
-
-
-                     <div class="relative pl-8 ">
-                        <div class="absolute top-0 left-[-16px] w-8 h-8 bg-purple-500 text-white flex items-center justify-center rounded-full">💻</div>
-                        <h4 class="text-xl font-bold">Frontend Developer</h4>
-                        <p class="text-gray-400">ITCO BD (2022 - 2023)</p>
-                        <p class="text-sm text-gray-300 mt-1">Building modern, responsive web experiences using React.js, Tailwind CSS, and Next.js.</p>
-                    </div>
-
-                </div>
+            <div class="relative pl-8 motion-safe:animate-fadeInUp delay-200">
+                <div class="absolute top-0 left-[-16px] w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">🎓</div>
+                <h4 class="text-xl font-bold">Secondary School Certificate</h4>
+                <p class="text-gray-400">Armanitola Govt High School (2012 - 2014)</p>
+                <p class="text-sm text-gray-300 mt-1">Focused on software engineering, web technologies, and creative problem-solving.</p>
             </div>
 
         </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="group">
+        <h3 class="text-3xl font-bold bg-gradient-to-r from-pink-400 to-purple-500 text-transparent bg-clip-text">💼 Experience</h3>
+        <div class="mt-6 space-y-6">
+
+            <div class="relative pl-8 motion-safe:animate-fadeInUp">
+                <div class="absolute top-0 left-[-16px] w-8 h-8 bg-purple-500 text-white flex items-center justify-center rounded-full">💻</div>
+                <h4 class="text-xl font-bold">Full Stack Developer</h4>
+                <p class="text-gray-400">Goinnovior Limited (2024 - Present)</p>
+                <p class="text-sm text-gray-300 mt-1">Building modern, responsive web experiences using React.js, Tailwind CSS, and Next.js.</p>
+            </div>
+
+            <div class="relative pl-8 motion-safe:animate-fadeInUp delay-100">
+                <div class="absolute top-0 left-[-16px] w-8 h-8 bg-purple-500 text-white flex items-center justify-center rounded-full">💻</div>
+                <h4 class="text-xl font-bold">Full Stack Engineer</h4>
+                <p class="text-gray-400">Mentormate, Sweden (Remote) (2023 - 2024)</p>
+                <p class="text-sm text-gray-300 mt-1">Building modern, responsive web experiences using React.js, Tailwind CSS, and Next.js.</p>
+            </div>
+
+            <div class="relative pl-8 animate-fadeInUp delay-200">
+                <div class="absolute top-0 left-[-16px] w-8 h-8 bg-purple-500 text-white flex items-center justify-center rounded-full">💻</div>
+                <h4 class="text-xl font-bold">Frontend Developer</h4>
+                <p class="text-gray-400">ITCO BD (2022 - 2023)</p>
+                <p class="text-sm text-gray-300 mt-1">Building modern, responsive web experiences using React.js, Tailwind CSS, and Next.js.</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
     </section>
 
-      <!-- Skills Section -->
-      <div class="mt-16">
-        <h3
-          class="text-3xl font-bold text-gradient bg-gradient-to-r from-blue-400 to-green-500 inline-block"
-        >
-          Skills
-        </h3>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >HTML</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >CSS</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >Tailwind CSS</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >JavaScript</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >React.js</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >Node.js</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >UI/UX Design</span
-          >
-          <span
-            class="px-4 py-2 bg-blue-900 text-blue-300 rounded-full text-sm shadow"
-            >Figma</span
-          >
-        </div>
+<!-- Fun Facts Section -->
+<section class="mt-20 bg-gray-800 py-16">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 text-transparent bg-clip-text">Fun Facts About Us 🎉</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-10">
+      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
+        <h3 class="text-3xl font-extrabold">50+</h3>
+        <p class="text-gray-400">Happy Clients</p>
       </div>
+      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
+        <h3 class="text-3xl font-extrabold">100+</h3>
+        <p class="text-gray-400">Projects Delivered</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
+        <h3 class="text-3xl font-extrabold">10+</h3>
+        <p class="text-gray-400">Countries Served</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
+        <h3 class="text-3xl font-extrabold">5</h3>
+        <p class="text-gray-400">Years of Experience</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Add Intersection Observer Script for Timeline Animation -->
+<script>
+document.querySelectorAll('.group').forEach(group => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                group.classList.add('active');
+                observer.unobserve(group);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(group);
+});
+</script>
+
     </section>
 
     <!-- Footer -->
