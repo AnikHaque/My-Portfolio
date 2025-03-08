@@ -7,15 +7,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
-    <style>
-      /* Custom styles for scroll animations */
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-      body {
-        font-family: "Roboto", sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="text-white">
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo">
+          <a href="#"><span>Ekramul </span>Haque</a>
+        </div>
+        <ul class="menu">
+          <li><a href="#home" class="menu-btn">Home</a></li>
+          <li><a href="about.html" class="menu-btn">About</a></li>
+          <li><a href="service.html" class="menu-btn">Services</a></li>
+          <li><a href="skills.html" class="menu-btn">Skills</a></li>
+          <li><a href="project.html" class="menu-btn">Projects</a></li>
+          <li><a href="contact.html" class="menu-btn">Contact</a></li>
+        </ul>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
     <!-- Hero Section -->
     <section
       class="relative bg-gradient-to-r from-blue-500 to-teal-500 h-[30vh] flex items-center justify-center text-center"
@@ -24,7 +36,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="py-20">
+    <section class="py-20 bg-gray-900">
       <div class="container mx-auto max-w-6xl text-center">
         <h2 class="text-4xl font-bold text-gray-300 mb-8">Skills Overview</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -242,19 +254,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="py-20 bg-gray-800" data-aos="fade-up">
-      <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-bold text-gray-300 mb-8">Experience</h2>
-        <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-          With years of hands-on experience, I have honed my skills in web
-          development, mobile application development, and cloud services. I'm
-          passionate about working on both front-end and back-end projects and
-          enjoy creating highly interactive and functional web apps.
-        </p>
-      </div>
-    </section>
-
     <!-- Footer Section -->
     <footer class="py-10 bg-gray-900 text-center text-gray-400">
       <p>&copy; 2025 All Rights Reserved. Designed by [Your Name]</p>
@@ -266,6 +265,16 @@
         duration: 1000,
         easing: "ease-in-out",
         once: true,
+      });
+    </script>
+    <script>
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("bg-purple-500");
+        } else {
+          navbar.classList.remove("bg-purple-500");
+        }
       });
     </script>
   </body>
