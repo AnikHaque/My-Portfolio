@@ -3,27 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Details - Modern Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Custom animation for fade-in */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .animate-fadeIn {
-        animation: fadeIn 1s ease-in-out;
-      }
-    </style>
     <link rel="stylesheet" href="style.css" />
+    <title>Single Project Banner</title>
   </head>
-  <body class="text-white">
-    <!-- navbar section start -->
+  <body>
     <nav class="navbar">
       <div class="max-width">
         <div class="logo">
@@ -32,117 +16,34 @@
         <ul class="menu">
           <li><a href="#home" class="menu-btn">Home</a></li>
           <li><a href="about.html" class="menu-btn">About</a></li>
-          <li><a href="#services" class="menu-btn">Services</a></li>
-          <li><a href="#skills" class="menu-btn">Skills</a></li>
-          <li><a href="#projects" class="menu-btn">Projects</a></li>
-          <li><a href="#contact" class="menu-btn">Contact</a></li>
+          <li><a href="service.html" class="menu-btn">Services</a></li>
+          <li><a href="skills.html" class="menu-btn">Skills</a></li>
+          <li><a href="project.html" class="menu-btn">Projects</a></li>
+          <li><a href="contact.html" class="menu-btn">Contact</a></li>
         </ul>
         <div class="menu-btn">
           <i class="fas fa-bars"></i>
         </div>
       </div>
     </nav>
-    <div
-      class="h-[50vh] bg-cover bg-center flex items-center justify-center"
-      style="
-        background-image: url('https://img.freepik.com/free-vector/realistic-spider-web-background_107791-26720.jpg');
-      "
-    >
-      <h1 class="text-white text-6xl font-bold">Our Services</h1>
-    </div>
-    <!-- Project Video Section -->
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-cyan-400 mb-8 mt-10">
-          Watch The Details Video
-        </h2>
-        <div class="relative">
-          <iframe
-            width="100%"
-            height="500"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="Project Demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Project Details Section -->
-    <section id="details" class="py-20 px-8">
-      <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-cyan-400 mb-6">
-          About This Project
-        </h2>
-        <p class="text-lg text-gray-400 mb-6">
-          This section gives a detailed overview of the project, including the
-          goals, technologies used, and the impact it has made. It can also
-          highlight specific features that set it apart from other similar
-          projects. This section gives a detailed overview of the project,
-          including the goals, technologies used, and the impact it has made. It
-          can also highlight specific features that set it apart from other
-          similar projects. This section gives a detailed overview of the
-          project, including the goals, technologies used, and the impact it has
-          made. It can also highlight specific features that set it apart from
-          other similar projects. This section gives a detailed overview of the
-          project, including the goals, technologies used, and the impact it has
-          made. It can also highlight specific features that set it apart from
-          other similar projects.
-        </p>
-      </div>
-    </section>
-
-    <!-- Project Gallery Section -->
-    <section class="py-20 bg-gray-800">
+    <div>
       <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        class="flex items-center justify-center bg-cover bg-no-repeat bg-center w-screen h-[36vh]"
+        style="
+          background-image: url('https://img.freepik.com/free-vector/realistic-spider-web-background_107791-26720.jpg');
+        "
       >
-        <!-- Gallery Items -->
-        <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img
-            src="https://img.favpng.com/7/6/12/vector-graphics-teamwork-planning-project-png-favpng-PHEDn0rPWvjxtyNwUwiSXGH1B.jpg"
-            alt="Gallery Image 1"
-            class="w-full h-56 object-cover transform hover:scale-105 transition duration-300"
-          />
-        </div>
-        <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img
-            src="https://img.favpng.com/7/6/12/vector-graphics-teamwork-planning-project-png-favpng-PHEDn0rPWvjxtyNwUwiSXGH1B.jpg"
-            alt="Gallery Image 2"
-            class="w-full h-56 object-cover transform hover:scale-105 transition duration-300"
-          />
-        </div>
-        <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img
-            src="https://img.favpng.com/7/6/12/vector-graphics-teamwork-planning-project-png-favpng-PHEDn0rPWvjxtyNwUwiSXGH1B.jpg"
-            alt="Gallery Image 3"
-            class="w-full h-56 object-cover transform hover:scale-105 transition duration-300"
-          />
-        </div>
-        <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img
-            src="https://img.favpng.com/7/6/12/vector-graphics-teamwork-planning-project-png-favpng-PHEDn0rPWvjxtyNwUwiSXGH1B.jpg"
-            alt="Gallery Image 3"
-            class="w-full h-56 object-cover transform hover:scale-105 transition duration-300"
-          />
-        </div>
-        <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img
-            src="https://img.favpng.com/7/6/12/vector-graphics-teamwork-planning-project-png-favpng-PHEDn0rPWvjxtyNwUwiSXGH1B.jpg"
-            alt="Gallery Image 3"
-            class="w-full h-56 object-cover transform hover:scale-105 transition duration-300"
-          />
-        </div>
-        <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img
-            src="https://img.favpng.com/7/6/12/vector-graphics-teamwork-planning-project-png-favpng-PHEDn0rPWvjxtyNwUwiSXGH1B.jpg"
-            alt="Gallery Image 3"
-            class="w-full h-56 object-cover transform hover:scale-105 transition duration-300"
-          />
+        <div class="text-center">
+          <h1 class="text-[54px] font-bold uppercase text-white p-4">
+            Work Details
+          </h1>
+          <span class="flex text-base font-normal justify-center">
+            <a href="#" class="text-white text-base mr-2">Home</a>
+            <p class="text-gray-500 text-base mr-2">/</p>
+            <p class="text-[#00A1E6] text-base">Work Details</p>
+          </span>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>
